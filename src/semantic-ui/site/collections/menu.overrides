@@ -1,0 +1,9 @@
+/*******************************
+         Site Overrides
+*******************************/
+
+.ui.item.menu .item{
+    font-size: 18px;
+    color: @myBlack;
+    font-weight: bold;
+}

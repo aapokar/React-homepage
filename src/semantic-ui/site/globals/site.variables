@@ -1,0 +1,11 @@
+/*******************************
+     User Global Variables
+*******************************/
+
+@primaryColor: @myBlack;
+@pageBackground: #1a1a1a;
+@myBlack: #1a1a1a;
+
+@background: @myBlack;
+@textColor: rgb(221,221,221);
+@fontSize : 15px;

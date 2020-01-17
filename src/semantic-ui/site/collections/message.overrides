@@ -1,0 +1,9 @@
+/*******************************
+        Site Overrides
+*******************************/
+
+.ui.message {
+        color: #1a1a1a
+}
+
+@messageTextOpacity: 0.95;
