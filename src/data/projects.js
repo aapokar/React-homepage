@@ -5,12 +5,15 @@ import polo0 from '../images/polo0.JPG'
 import myarm from '../images/mearm.jpg'
 import wp from '../images/wp.jpg'
 import laatikosto from '../images/laatikosto.JPG'
+import taso from '../images/taso.JPG'
+
 import Ennustin from './projectComponents/Ennustin'
 import ADCRaspi from './projectComponents/ADCRaspi'
 import Nopeuspeli from './projectComponents/Nopeuspeli'
 import Mearm from './projectComponents/Mearm'
 import Lukko from './projectComponents/Lukko'
 import Laatikosto from './projectComponents/Laatikosto'
+import Taso from './projectComponents/Taso'
 
 const projectsList =  
 
@@ -67,6 +70,15 @@ const projectsList =
             codeUrl: null,
             content: "Laatikosto.",
             url: "/projects/6"
+        },
+        {
+            id: "7",
+            name: "Keittiön taso",
+            description: "Keittiön kalustoon sopiva taso ja kaappi.",
+            img: taso,
+            codeUrl: null,
+            content: "Laatikosto.",
+            url: "/projects/7"
         }
     ]
 
@@ -85,6 +97,8 @@ export const selector = (id) => {
             return <Lukko />
         case "6":
             return <Laatikosto />
+        case "7":
+            return <Taso />
         default:
             return null
     }

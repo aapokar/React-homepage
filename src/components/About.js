@@ -45,6 +45,10 @@ return (
                 ChuckNorris-tarinalle, ilmoitukselle sekä projektien tilalle.
             </li>
             <li>
+                Projektien kuviin pitäisi saada klikattava zoomi. Lisätään kunhan
+                ehditään.
+            </li>
+            <li>
                 Koodit löytyvät tietenkin <a href="https://github.com/aapokar" target="_blank" rel="noopener noreferrer"> githubista.<Icon name='github' size='large' color='blue' /> </a>
             </li>
           </ul>
@@ -55,11 +59,16 @@ return (
         <Header as="h1" >Known bugs</Header>
         <List>
             <List.Item><List.Icon name='bug' />
-            <List.Content>Viesti painikepelissä on toteutettu setTimeOutilla, 
-                ei kestä nopeita klikkauksia.</List.Content>
+            <List.Content>
+            <List.Header>Viesti painikepelissä on toteutettu setTimeOutilla, 
+                ei kestä nopeita klikkauksia.</List.Header>
+                <i>Korjattu jäämään näkyviin.</i></List.Content>
             </List.Item>
-            <List.Item><List.Icon name='bug' /><List.Content>Reititys ei toimi 
-                _vielä_ backendiltä frontendin polkuihin. Toimii pelkässä frontendissä.</List.Content>
+            <List.Item><List.Icon name='bug' />
+            <List.Content>
+            <List.Header>Reititys ei toimi 
+                _vielä_ backendiltä frontendin polkuihin. Toimii pelkässä frontendissä.</List.Header>
+                <i>Korjattu reitittämään kaikki aloitussivulle.</i></List.Content>
             </List.Item>
         </List>
     </Segment>

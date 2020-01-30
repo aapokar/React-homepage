@@ -1,6 +1,6 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { connect } from 'react-redux'
-import { Button, Icon, Segment, Header } from 'semantic-ui-react'
+import { Button, Icon, Segment, Header, Accordion } from 'semantic-ui-react'
 
 import {setJoke} from '../reducers/jokeReducer'
 import {setStatus} from '../reducers/gameReducer'
@@ -12,7 +12,15 @@ import Notification from '../components/Notification'
 
 
 const Viihde = (props) => {
-    const handleClick = (e) => {
+    const [activeIndex, setActiveIndex] = useState(-1)
+
+    const handleAccordionClick = (e, titleProps) => {
+      const { index } = titleProps
+      const newIndex = activeIndex === index ? -1 : index
+      setActiveIndex( newIndex )
+    }
+
+    const handleJokeClick = (e) => {
         props.setJoke()
     }
 
@@ -25,8 +33,8 @@ const Viihde = (props) => {
         score: props.score
       }
       gameService.postStatus(status).then(e => {
-      if (e.voitto) {
-        props.newNotification(e.voitto)
+      if (e.prize) {
+        props.newNotification(e.prize)
       } else {
         props.newNotification([e.next, 'neutral'])
       }
@@ -38,7 +46,7 @@ const Viihde = (props) => {
     return (
       <div>
         <Segment textAlign='center'>
-            <Button icon onClick={handleClick}>
+            <Button icon onClick={handleJokeClick}>
             Paina tästä ja lisää viihtymistäsi!<br/>
             <Icon name='random' loading  />
             </Button>
@@ -46,7 +54,7 @@ const Viihde = (props) => {
         </Segment>
         <Segment textAlign='center'>
             <div>
-              <Header as="h1">Painikepeli</Header>
+              <Header as="h1"><Icon name='dropdown' />Painikepeli</Header>
             {props.score===0 ?
             <div>
               <h2>Valitettavasti pisteesi loppuivat.</h2>
@@ -62,7 +70,16 @@ const Viihde = (props) => {
             </div>
         </Segment>
         <Segment raised textAlign='center'>
+        <Accordion styled fluid>
+        <Accordion.Title
+          active={activeIndex === 0}
+          index={0}
+          onClick={handleAccordionClick}
+        >
           <Header as="h2">Painikepelin tiedot</Header>
+        </Accordion.Title>
+        <Accordion.Content active={activeIndex === 0}>
+          
           <Header as="h3">Painikepeli on tehty seuraavan tehtävänannon perusteella.</Header>
           <p>Tavoitteena on toteuttaa yksinkertainen moninpeli, 
             jota pelataan painamalla painiketta.
@@ -99,6 +116,8 @@ const Viihde = (props) => {
           hänen pistesaldonsa palautetaan jälleen arvoon 20.
           Sovellus koostuu kahdesta osasta: käyttöliittymästä ja palvelimesta.
           </p>
+          </Accordion.Content>
+          </Accordion>
         </Segment>
       </div>
     )
