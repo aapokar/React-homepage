@@ -54,7 +54,7 @@ const Viihde = (props) => {
         </Segment>
         <Segment textAlign='center'>
             <div>
-              <Header as="h1"><Icon name='dropdown' />Painikepeli</Header>
+              <Header as="h1">Painikepeli</Header>
             {props.score===0 ?
             <div>
               <h2>Valitettavasti pisteesi loppuivat.</h2>
@@ -76,7 +76,7 @@ const Viihde = (props) => {
           index={0}
           onClick={handleAccordionClick}
         >
-          <Header as="h2">Painikepelin tiedot</Header>
+        <Header as="h2"><Icon name='dropdown' />Painikepelin tiedot</Header>
         </Accordion.Title>
         <Accordion.Content active={activeIndex === 0}>
           

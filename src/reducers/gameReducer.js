@@ -20,6 +20,3 @@ export const setStatus = (props) => {
 
 export default gameReducer
 
-// return async dispatch => {
-//     const newStatus = await gameService.getStatus()
-//     dispatch({})

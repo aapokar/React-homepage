@@ -5,6 +5,7 @@ import {Container} from 'semantic-ui-react'
 import { connect } from 'react-redux'
 
 import { initializeProjects } from './reducers/projectsReducer'
+import {initializeWeatherData} from './reducers/weatherReducer'
 import {setJoke} from './reducers/jokeReducer'
 import {setStatus} from './reducers/gameReducer'
 import projectsList, {selector} from './data/projects'
@@ -18,6 +19,7 @@ import Viihde from './components/Viihde'
 
 
 
+
 function App(props) {
 
   useEffect(() => {
@@ -26,6 +28,14 @@ function App(props) {
 
   useEffect(() => {
     props.setJoke()
+  }, [])
+
+  useEffect(()=> {
+    async function anyNameFunction() {
+      await props.initializeWeatherData()
+    }
+
+    anyNameFunction()
   }, [])
 
   useEffect(() => {
@@ -85,6 +95,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
   initializeProjects,
+  initializeWeatherData,
   setJoke,
   setStatus
 }
